@@ -1,0 +1,11 @@
+import requests
+
+token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhN2Y5NmFkLTNlZGEtNGVjNS1hNDU5LTljMTYzOTYwZWNiNyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Z0dmdpcmJjeXdqdGlhd2N5cnR4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJjM2IwMDk0MC0xYjNjLTRkOTMtYTczOS03MDliZTcxMjZmNmUiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzg3MTE5MDkwLCJpYXQiOjE3ODcxMTU0OTAsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzg3MTE1NDkwfV0sInNlc3Npb25faWQiOiJmZmVhZDIxOC01OGNjLTQ5MWYtYmM3My1kZDQwMTU5YTE1NzAiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.Pcl2sUv7PfTVGX2JzEtjATyGy5nua_9s8wuzwJszBNqakZjk6TzHRRFLAZaT8Cpp3b-VeLg20WKCsK5NYVgr6w"
+
+r = requests.post(
+    "http://127.0.0.1:8000/api/v1/goals",
+    headers={"Authorization": f"Bearer {token}"},
+    json={"goal_type": "strength", "target_value": 100, "target_unit": "kg"},
+)
+print(r.status_code)
+print(r.json())

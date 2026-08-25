@@ -1,0 +1,12 @@
+import requests
+
+token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhN2Y5NmFkLTNlZGEtNGVjNS1hNDU5LTljMTYzOTYwZWNiNyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Z0dmdpcmJjeXdqdGlhd2N5cnR4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJjM2IwMDk0MC0xYjNjLTRkOTMtYTczOS03MDliZTcxMjZmNmUiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzg3MjA2NTU3LCJpYXQiOjE3ODcyMDI5NTcsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzg3MjAyOTU3fV0sInNlc3Npb25faWQiOiJjZjNiMDU5Yy03YWI1LTQyMTItOTQ3MS04NmY2OTAzZmY4MjkiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.UmpGfWzE1AtyToJvDe9_nQrpCs6w6FkU7z0PcwEnTIz9SMmO5F1OryF6B9y8dERO13WMlD3Ll7jAYtZeeN7GaA"
+headers = {"Authorization": f"Bearer {token}"}
+
+response = requests.post(
+    "http://127.0.0.1:8000/api/v1/ai/workout",
+    headers=headers,
+    json={"focus": "upper body strength", "available_minutes": 45},
+)
+print(response.status_code)
+print(response.json())

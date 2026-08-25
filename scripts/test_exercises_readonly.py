@@ -1,0 +1,11 @@
+import requests
+
+token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhN2Y5NmFkLTNlZGEtNGVjNS1hNDU5LTljMTYzOTYwZWNiNyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Z0dmdpcmJjeXdqdGlhd2N5cnR4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJjM2IwMDk0MC0xYjNjLTRkOTMtYTczOS03MDliZTcxMjZmNmUiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzg2NjkwNDgwLCJpYXQiOjE3ODY2ODY4ODAsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzg2Njg2ODgwfV0sInNlc3Npb25faWQiOiI5NzlkODljOC1kY2Y3LTRhNWUtYWJkNS1iNjc1ZmZiNDA1YjAiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.dXFjACNpmwhC_shDMoKDY7Vb4eavFZei3P_V_oFfSkf5qPsgFY4HBzBBL4vtQXxgNlx3V6_wWidQmufa-z_sgg"
+
+r = requests.post(
+    "http://127.0.0.1:8000/api/v1/exercises",
+    headers={"Authorization": f"Bearer {token}"},
+    json={"name": "Should Not Work"},
+)
+print(r.status_code)
+print(r.json())

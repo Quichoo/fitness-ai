@@ -1,0 +1,13 @@
+import requests
+
+# Token belonging to a DIFFERENT user than the one who created the workout
+other_user_token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhN2Y5NmFkLTNlZGEtNGVjNS1hNDU5LTljMTYzOTYwZWNiNyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Z0dmdpcmJjeXdqdGlhd2N5cnR4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJjM2IwMDk0MC0xYjNjLTRkOTMtYTczOS03MDliZTcxMjZmNmUiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzg2ODQzMTk0LCJpYXQiOjE3ODY4Mzk1OTQsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzg2ODM5NTk0fV0sInNlc3Npb25faWQiOiI3OTEyZTQ5NC0yMmFiLTQ1ZjYtODU5Ny03MWQ5ZWIyZDU3YjciLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.pFvsOm0DEuD3rCRAibicBR53yD7x3w76pLmta3IIXOIZIf5_BvAuLnJLWiODE5Rqg2SQWoRF8quFf8ejJk1yhQ"
+
+workout_id = "234d9f99-a1c5-42b6-adb4-5903aeb94edf"
+
+r = requests.get(
+    f"http://127.0.0.1:8000/api/v1/workouts/{workout_id}",
+    headers={"Authorization": f"Bearer {other_user_token}"},
+)
+print(r.status_code)
+print(r.json())

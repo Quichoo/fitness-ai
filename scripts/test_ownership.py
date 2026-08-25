@@ -1,0 +1,14 @@
+import requests
+
+# Token for the SECOND user (test2@test.com)
+token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhN2Y5NmFkLTNlZGEtNGVjNS1hNDU5LTljMTYzOTYwZWNiNyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Z0dmdpcmJjeXdqdGlhd2N5cnR4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJlODJkNTExNC1kNzVhLTQ1NWEtODVhMy01OTBkNjA2MGJkM2QiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzg2NjkxNTcwLCJpYXQiOjE3ODY2ODc5NzAsImVtYWlsIjoidGVzdHVzZXIyQHRlc3QuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZX0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3ODY2ODc5NzB9XSwic2Vzc2lvbl9pZCI6IjdmOTQ2MDJjLTI3ZDktNGZhMi1hNDJmLTVjZDE4YzliNWI2ZCIsImlzX2Fub255bW91cyI6ZmFsc2V9.3A-bEjVPkKXlkdrwq8B0_EZ1SmXNXWCnlDUxaaCSG9Cbn_OdDyaDsvlAS_2elR8tX7lkmzR4-879tQHDmNt7iA"
+
+# The goal ID that belongs to the FIRST user
+goal_id = "07015398-9647-4934-9125-9fd76cd56cf2"
+
+r = requests.get(
+    f"http://127.0.0.1:8000/api/v1/goals/{goal_id}",
+    headers={"Authorization": f"Bearer {token}"},
+)
+print(r.status_code)
+print(r.json())
